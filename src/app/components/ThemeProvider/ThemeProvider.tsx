@@ -15,15 +15,17 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     setRenderComponent(true);
   }, []);
 
+  useEffect(() => {
+    document.body.className = `${darkTheme ? "dark" : ""} min-h-screen`;
+  }, [darkTheme]);
+
   if (!renderComponent) return <></>;
 
   return (
     <ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
-      <div className={`${darkTheme ? "dark" : ""} min-h-screen`}>
-        <div className="dark:text-white dark:bg-black text-[#1E1E1E]">
-          {children}
-        </div>
-      </div>
+      <main className="dark:text-white dark:bg-black text-[#1E1E1E] font-normal">
+        {children}
+      </main>
     </ThemeContext.Provider>
   );
 };
