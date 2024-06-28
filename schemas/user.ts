@@ -32,6 +32,16 @@ export default {
       hidden: true,
     }),
     defineField({
+      name: "email",
+      type: "string",
+      title: "Email",
+    }),
+    defineField({
+      name: "emailVerified",
+      type: "datetime",
+      hidden: true,
+    }),
+    defineField({
       name: "about",
       title: "About",
       type: "text",
