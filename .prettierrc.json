@@ -6,5 +6,9 @@
   "tabWidth": 2,
   "endOfLine": "auto",
   "arrowParens": "avoid",
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "tailwindConfig": "./tailwind.config.ts",
+  "plugins": [
+    "prettier-plugin-tailwindcss"
+  ]
 }

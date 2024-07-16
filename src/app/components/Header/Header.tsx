@@ -8,12 +8,12 @@ import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
 export default function Header() {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   return (
-    <header className="py-10 px-4 container mx-auto text-xl flex flex-wrap md:flex-nowrap items-center justify-between">
-      <div className="flex items-center w-full md:w-2/3">
+    <header className="container mx-auto flex flex-wrap items-center justify-between px-4 py-10 text-xl md:flex-nowrap">
+      <div className="flex w-full items-center md:w-2/3">
         <Link href="/" className="font-black text-tertiary-dark">
           Hotelzz
         </Link>
-        <ul className="flex items-center ml-5">
+        <ul className="ml-5 flex items-center">
           <li className="flex items-center">
             <Link href="/auth">
               <FaUserCircle className="cursor-pointer" />
@@ -40,14 +40,14 @@ export default function Header() {
           </li>
         </ul>
       </div>
-      <ul className="flex items-center justify-between w-full md:w-1/3 mt-4">
-        <li className="hover:translate-y-2 duration-500 transition-all">
+      <ul className="mt-4 flex w-full items-center justify-between md:w-1/3">
+        <li className="transition-all duration-500 hover:-translate-y-2">
           <Link href="/">Home</Link>
         </li>
-        <li className="hover:translate-y-2 duration-500 transition-all">
+        <li className="transition-all duration-500 hover:-translate-y-2">
           <Link href="/rooms">Rooms</Link>
         </li>
-        <li className="hover:translate-y-2 duration-500 transition-all">
+        <li className="transition-all duration-500 hover:-translate-y-2">
           <Link href="/">Contact</Link>
         </li>
       </ul>

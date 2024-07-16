@@ -2,7 +2,7 @@
 import ThemeContext from "@/context/themeContext";
 import { useEffect, useState } from "react";
 
-const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const themeFromStorage: boolean =
     typeof localStorage !== "undefined" && localStorage.getItem("hotel-theme")
       ? JSON.parse(localStorage.getItem("hotel-theme")!)
@@ -29,5 +29,3 @@ const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     </ThemeContext.Provider>
   );
 };
-
-export default ThemeProvider;
