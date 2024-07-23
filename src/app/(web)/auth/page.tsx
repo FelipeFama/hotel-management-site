@@ -1,10 +1,32 @@
-import React from "react";
+"use client";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 
 const Auth = () => {
+  /*
+  const [formData, setFormData] = useState(defaultFormData);
+  */
+
   const inputStyles =
     "border border-gray-300 sm:text-sm text-black rounded-lg block w-full p-2.5 focus:outline-none";
+  /*
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    
+    try {
+      console.log(formData);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setFormData(defaultFormData);
+    }
+  };
+  */
   return (
     <section className="container mx-auto">
       <article className="mx-auto w-80 space-y-4 p-6 sm:p-8 md:w-[70%] md:space-y-6">

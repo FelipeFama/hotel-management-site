@@ -23,7 +23,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <ThemeContext.Provider value={{ darkTheme, setDarkTheme }}>
-      <main className="dark:text-white dark:bg-black text-[#1E1E1E] font-normal">
+      <main className="font-normal text-[#1E1E1E] dark:bg-black dark:text-white">
         {children}
       </main>
     </ThemeContext.Provider>

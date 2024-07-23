@@ -10,8 +10,8 @@ export default function Footer() {
         <Link href="/" className="font-black text-tertiary-dark">
           Hotelzz
         </Link>
-        <h4 className="font-semibold text-[40px] py-6">Contact</h4>
-        <article className="flex flex-wrap gap-16 items-center justify-between">
+        <h4 className="py-6 text-[40px] font-semibold">Contact</h4>
+        <article className="flex flex-wrap items-center justify-between gap-16">
           <aside className="flex-1">
             <p>123 Road</p>
             <div className="flex items-center py-4">
@@ -43,7 +43,7 @@ export default function Footer() {
           </aside>
         </article>
       </section>
-      <div className="bg-tertiary-light h-10 md:h-[70px] mt-16 w-full bottom-0 left-0" />
+      <div className="bottom-0 left-0 mt-16 h-10 w-full bg-tertiary-light md:h-[70px]" />
     </footer>
   );
 }
