@@ -38,24 +38,26 @@ export const HeroSection = () => {
             className="img scale-animation"
           />
         </figure>
-        <figure className="h-48 overflow-hidden rounded-2xl">
-          <Image
-            src="/images/hero-2.jpeg"
-            alt="hero-2"
-            width={300}
-            height={300}
-            className="img scale-animation"
-          />
-        </figure>
-        <figure className="h-48 overflow-hidden rounded-2xl">
-          <Image
-            src="/images/hero-3.jpeg"
-            alt="hero-3"
-            width={300}
-            height={300}
-            className="img scale-animation"
-          />
-        </figure>
+        <aside className="grid h-48 grid-cols-2 gap-8">
+          <figure className="h-48 overflow-hidden rounded-2xl">
+            <Image
+              src="/images/hero-2.jpeg"
+              alt="hero-2"
+              width={300}
+              height={300}
+              className="img scale-animation"
+            />
+          </figure>
+          <figure className="h-48 overflow-hidden rounded-2xl">
+            <Image
+              src="/images/hero-3.jpeg"
+              alt="hero-3"
+              width={300}
+              height={300}
+              className="img scale-animation"
+            />
+          </figure>
+        </aside>
       </article>
     </section>
   );
