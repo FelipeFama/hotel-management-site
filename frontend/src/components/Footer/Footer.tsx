@@ -47,4 +47,3 @@ export default function Footer() {
     </footer>
   );
 }
-jjjj
