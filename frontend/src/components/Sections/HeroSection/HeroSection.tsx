@@ -1,3 +1,6 @@
+"use client";
+
+import { CountUpNumber } from "@/components/CountUpNumber/CountUpNumber";
 import Image from "next/image";
 
 export const HeroSection = () => {
@@ -15,15 +18,15 @@ export const HeroSection = () => {
         <div className="mt-12 flex justify-between">
           <aside className="flex flex-col items-center justify-center gap-3">
             <p className="text-center text-xs lg:text-xl">Basic Room</p>
-            <p className="text-lg font-medium md:font-bold xl:text-5xl">+20</p>
+            <CountUpNumber duration={3000} endValue={200} />
           </aside>
           <aside className="flex flex-col items-center justify-center gap-3">
             <p className="text-center text-xs lg:text-xl">Luxury Room</p>
-            <p className="text-lg font-medium md:font-bold xl:text-5xl">+20</p>
+            <CountUpNumber duration={3000} endValue={200} />
           </aside>
           <aside className="flex flex-col items-center justify-center gap-3">
             <p className="text-center text-xs lg:text-xl">Suite</p>
-            <p className="text-lg font-medium md:font-bold xl:text-5xl">+20</p>
+            <CountUpNumber duration={3000} endValue={200} />
           </aside>
         </div>
       </article>
