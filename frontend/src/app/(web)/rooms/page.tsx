@@ -1,5 +1,6 @@
 "use client";
 
+import { RoomCard } from "@/components/Sections/RoomCard/RoomCard";
 import { Search } from "@/components/Sections/Search/Search";
 import { getRooms } from "@/libs/apis";
 import { Room } from "@/models/room";
@@ -65,7 +66,7 @@ export default function Rooms() {
       />
       <section className="mt-20 flex flex-wrap justify-between">
         {filteredRooms.map(room => (
-          <></>
+          <RoomCard key={room._id} room={room} />
         ))}
       </section>
     </section>
