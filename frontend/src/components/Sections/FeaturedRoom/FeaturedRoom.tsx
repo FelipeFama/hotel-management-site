@@ -25,8 +25,8 @@ export const FeaturedRoom: FC<Props> = props => {
           />
         </figure>
         <aside className="grid h-48 grid-cols-2 gap-8">
-          {featuredRoom.images.splice(1, 2).map(image => (
-            <figure className="overflow-hidden rounded-2xl">
+          {featuredRoom.images.splice(1, 2).map((image, index) => (
+            <figure key={index} className="overflow-hidden rounded-2xl">
               <Image
                 src={image.url}
                 alt={image._key}
