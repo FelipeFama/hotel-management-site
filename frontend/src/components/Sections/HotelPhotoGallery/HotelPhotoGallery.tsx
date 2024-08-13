@@ -6,6 +6,12 @@ import Image from "next/image";
 
 export const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = (index: number) => {
+    setCurrentPhotoIndex(index);
+    setShowModal(true);
+  };
 
   return (
     <section className="container mx-auto">
@@ -18,6 +24,17 @@ export const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
               className="img scale-animation cursor-pointer"
               width={150}
               height={150}
+              onClick={openModal.bind(this, 0)}
+            />
+          </figure>
+          <figure className="flex h-full w-full items-center justify-center md:hidden">
+            <Image
+              src={photos[currentPhotoIndex].url}
+              alt={`Room Photo ${currentPhotoIndex + 1}`}
+              className="img"
+              width={150}
+              height={150}
+              onClick={openModal.bind(this, 0)}
             />
           </figure>
         </aside>
