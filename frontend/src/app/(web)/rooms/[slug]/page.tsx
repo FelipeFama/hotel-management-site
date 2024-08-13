@@ -13,7 +13,7 @@ export default function RoomDetails(props: { params: { slug: string } }) {
   const fetchRoom = async () => getRoom(slug);
 
   const { data: room, error, isLoading } = useSWR("/api/room", fetchRoom);
-  console.log(room);
+
   if (error) throw new Error("Cannot fetch data");
   if (typeof room === "undefined" && !isLoading)
     throw new Error("Cannot fetch data");
