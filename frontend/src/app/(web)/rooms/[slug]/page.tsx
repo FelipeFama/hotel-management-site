@@ -21,7 +21,6 @@ export default function RoomDetails(props: { params: { slug: string } }) {
 
   if (!room) return <LoadingSpinner />;
 
-  console.log(room);
   return (
     <section>
       <HotelPhotoGallery photos={room.images} />
