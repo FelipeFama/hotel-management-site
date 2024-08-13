@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, Fragment, useState } from "react";
 import { Image as ImageType } from "@/models/room";
 import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -30,6 +30,13 @@ export const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
   const totalPhotos = photos.length;
   const displayPhotos = photos.slice(1, maximumVisiblePhotos - 1);
   const remainingPhotosCount = totalPhotos - maximumVisiblePhotos;
+  /*Test return images
+  console.log("Photos:", photos);
+  console.log("Maximum Visible Photos:", maximumVisiblePhotos);
+  console.log("Total Photos:", totalPhotos);
+  console.log("Remaining Photos Count:", remainingPhotosCount);
+  photos.forEach(photo => console.log("Image URL:", photo.url));
+  */
 
   return (
     <section className="container mx-auto">
@@ -93,6 +100,11 @@ export const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
                 alt={`Room Photo ${maximumVisiblePhotos}`}
                 className="img"
               />
+              {/*
+               */}
+              <figcaption className="absolute inset-0 flex cursor-pointer items-center justify-center bg-[rgba(0,0,0,0.5)] text-2xl text-white">
+                + {remainingPhotosCount}
+              </figcaption>
             </figure>
           )}
         </aside>
