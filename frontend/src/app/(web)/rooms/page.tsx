@@ -55,7 +55,7 @@ export default function Rooms() {
 
   const filteredRooms = filterRooms(data || []);
 
-  console.log(filteredRooms);
+  //console.log(filteredRooms);
   return (
     <section className="container mx-auto pt-10">
       <Search
