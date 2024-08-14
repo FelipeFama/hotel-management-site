@@ -14,18 +14,18 @@ export default function Footer() {
         <article className="flex flex-wrap items-center justify-between gap-16">
           <aside className="flex-1">
             <p>123 Road</p>
-            <div className="flex items-center py-4">
+            <figcaption className="flex items-center py-4">
               <BsFillSendFill />
               <p className="ml-2">codewithlari</p>
-            </div>
-            <div className="flex items-center">
+            </figcaption>
+            <figcaption className="flex items-center">
               <BsTelephoneOutbound />
               <p className="ml-2">000-000-00</p>
-            </div>
-            <div className="flex items-center pt-4">
+            </figcaption>
+            <figcaption className="flex items-center pt-4">
               <BiMessageDetail />
-              <p className="ml-2">codewithlari</p>
-            </div>
+              <p className="ml-2">codewithfelipe</p>
+            </figcaption>
           </aside>
           <aside className="flex-1 md:text-right">
             <p className="pb-4">Our Story</p>
