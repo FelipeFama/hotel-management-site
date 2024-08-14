@@ -29,7 +29,7 @@ export type Room = {
   isFeatured: boolean;
   name: string;
   numberOfBeds: number;
-  OfferedAmenities: Amenity[];
+  offeredAmenities: Amenity[];
   price: number;
   slug: slug;
   specialNote: string;
