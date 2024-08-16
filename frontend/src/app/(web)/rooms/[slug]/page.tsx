@@ -8,6 +8,7 @@ import { MdOutlineCleaningServices } from "react-icons/md";
 import { LiaFireExtinguisherSolid } from "react-icons/lia";
 import { AiOutlineMedicineBox } from "react-icons/ai";
 import { GiSmokeBomb } from "react-icons/gi";
+import { BookRoomCheck } from "@/components/Sections/BookRoomCheck/BookRoomCheck";
 
 export default function RoomDetails(props: { params: { slug: string } }) {
   const {
@@ -105,7 +106,9 @@ export default function RoomDetails(props: { params: { slug: string } }) {
             </article>
           </div>
           {/* Book room check */}
-          <div className="overflow-auto' sticky top-10 h-fit rounded-xl shadow-lg dark:shadow dark:shadow-white md:col-span-4"></div>
+          <div className="sticky top-10 h-fit overflow-auto rounded-xl shadow-lg dark:shadow dark:shadow-white md:col-span-4">
+            <BookRoomCheck price={room.price} discount={room.discount} />
+          </div>
         </article>
       </section>
     </section>
