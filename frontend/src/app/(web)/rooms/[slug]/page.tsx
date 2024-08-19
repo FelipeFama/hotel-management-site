@@ -9,11 +9,15 @@ import { LiaFireExtinguisherSolid } from "react-icons/lia";
 import { AiOutlineMedicineBox } from "react-icons/ai";
 import { GiSmokeBomb } from "react-icons/gi";
 import { BookRoomCheck } from "@/components/Sections/BookRoomCheck/BookRoomCheck";
+import { useState } from "react";
 
 export default function RoomDetails(props: { params: { slug: string } }) {
   const {
     params: { slug },
   } = props;
+
+  const [checkinDate, setCheckinDate] = useState<Date | null>(null);
+  const [checkoutDate, setCheckoutDate] = useState<Date | null>(null);
 
   const fetchRoom = async () => getRoom(slug);
 
@@ -24,6 +28,15 @@ export default function RoomDetails(props: { params: { slug: string } }) {
     throw new Error("Cannot fetch data");
 
   if (!room) return <LoadingSpinner />;
+
+  const calcMinCheckoutDate = () => {
+    if (checkinDate) {
+      const nextDay = new Date(checkinDate);
+      nextDay.setDate(nextDay.getDate() + 1);
+      return nextDay;
+    }
+    return null;
+  };
 
   return (
     <section>
@@ -111,6 +124,11 @@ export default function RoomDetails(props: { params: { slug: string } }) {
               price={room.price}
               discount={room.discount}
               specialNote={room.specialNote}
+              checkinDate={checkinDate}
+              setCheckinDate={setCheckinDate}
+              checkoutDate={checkoutDate}
+              setCheckoutDate={setCheckoutDate}
+              calcMinCheckoutDate={calcMinCheckoutDate}
             />
           </div>
         </article>
