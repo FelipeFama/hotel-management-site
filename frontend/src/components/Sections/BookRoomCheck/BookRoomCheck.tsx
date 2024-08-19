@@ -5,10 +5,11 @@ import { FC } from "react";
 type Props = {
   price: number;
   discount: number;
+  specialNote: string;
 };
 
 export const BookRoomCheck: FC<Props> = props => {
-  const { price, discount } = props;
+  const { price, discount, specialNote } = props;
 
   const discountPrice = price - (price / 100) * discount;
 
@@ -32,6 +33,14 @@ export const BookRoomCheck: FC<Props> = props => {
       </h3>
 
       <div className="my-2 w-full border-b-2 border-b-secondary"></div>
+
+      <h4 className="my-8">{specialNote}</h4>
+
+      <aside className="flex">
+        <div className="w-1/2 pr-2">
+          <label htmlFor="check-in-date"></label>
+        </div>
+      </aside>
     </article>
   );
 };

@@ -107,7 +107,11 @@ export default function RoomDetails(props: { params: { slug: string } }) {
           </div>
           {/* Book room check */}
           <div className="sticky top-10 h-fit overflow-auto rounded-xl shadow-lg dark:shadow dark:shadow-white md:col-span-4">
-            <BookRoomCheck price={room.price} discount={room.discount} />
+            <BookRoomCheck
+              price={room.price}
+              discount={room.discount}
+              specialNote={room.specialNote}
+            />
           </div>
         </article>
       </section>
