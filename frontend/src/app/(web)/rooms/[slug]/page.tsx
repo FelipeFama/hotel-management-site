@@ -47,6 +47,17 @@ export default function RoomDetails(props: { params: { slug: string } }) {
 
     if (checkinDate > checkoutDate)
       return toast.error("Please choose a valid checkin period");
+
+    const numOfDays = calcNumberOfDays();
+
+    const hotelRoomSlug = room.slug.current;
+  };
+
+  const calcNumberOfDays = () => {
+    if (!checkinDate || !checkoutDate) return;
+    const timeDiff = checkoutDate.getTime() - checkinDate.getTime();
+    const numberOfDays = Math.ceil(timeDiff / (24 * 60 * 60 * 1000));
+    return numberOfDays;
   };
 
   return (
