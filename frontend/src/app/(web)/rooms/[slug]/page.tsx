@@ -10,6 +10,7 @@ import { AiOutlineMedicineBox } from "react-icons/ai";
 import { GiSmokeBomb } from "react-icons/gi";
 import { BookRoomCheck } from "@/components/Sections/BookRoomCheck/BookRoomCheck";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export default function RoomDetails(props: { params: { slug: string } }) {
   const {
@@ -40,7 +41,13 @@ export default function RoomDetails(props: { params: { slug: string } }) {
     return null;
   };
 
-  const handleBookNowClick = () => {};
+  const handleBookNowClick = () => {
+    if (!checkinDate || !checkoutDate)
+      return toast.error("Please provide checkin / checkout date");
+
+    if (checkinDate > checkoutDate)
+      return toast.error("Please choose a valid checkin period");
+  };
 
   return (
     <section>
