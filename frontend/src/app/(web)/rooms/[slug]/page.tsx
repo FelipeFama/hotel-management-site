@@ -18,6 +18,8 @@ export default function RoomDetails(props: { params: { slug: string } }) {
 
   const [checkinDate, setCheckinDate] = useState<Date | null>(null);
   const [checkoutDate, setCheckoutDate] = useState<Date | null>(null);
+  const [adults, setAdults] = useState(1);
+  const [childrens, setChildrens] = useState(0);
 
   const fetchRoom = async () => getRoom(slug);
 
@@ -37,6 +39,8 @@ export default function RoomDetails(props: { params: { slug: string } }) {
     }
     return null;
   };
+
+  const handleBookNowClick = () => {};
 
   return (
     <section>
@@ -119,7 +123,7 @@ export default function RoomDetails(props: { params: { slug: string } }) {
             </article>
           </div>
           {/* Book room check */}
-          <div className="sticky top-10 h-fit overflow-auto rounded-xl shadow-lg dark:shadow dark:shadow-white md:col-span-4">
+          <div className="sticky top-10 h-fit overflow-visible rounded-xl shadow-lg dark:shadow dark:shadow-white md:col-span-4">
             <BookRoomCheck
               price={room.price}
               discount={room.discount}
@@ -129,6 +133,12 @@ export default function RoomDetails(props: { params: { slug: string } }) {
               checkoutDate={checkoutDate}
               setCheckoutDate={setCheckoutDate}
               calcMinCheckoutDate={calcMinCheckoutDate}
+              adults={adults}
+              setAdults={setAdults}
+              childrens={childrens}
+              setChildrens={setChildrens}
+              isBooked={room.isBooked}
+              handleBookNowClick={handleBookNowClick}
             />
           </div>
         </article>

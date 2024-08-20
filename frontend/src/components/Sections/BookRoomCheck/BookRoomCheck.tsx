@@ -13,6 +13,12 @@ type Props = {
   checkoutDate: Date | null;
   setCheckoutDate: Dispatch<SetStateAction<Date | null>>;
   calcMinCheckoutDate: () => Date | null;
+  adults: number;
+  setAdults: Dispatch<SetStateAction<number>>;
+  childrens: number;
+  setChildrens: Dispatch<SetStateAction<number>>;
+  isBooked: boolean;
+  handleBookNowClick: () => void;
 };
 
 export const BookRoomCheck: FC<Props> = props => {
@@ -25,9 +31,22 @@ export const BookRoomCheck: FC<Props> = props => {
     checkoutDate,
     setCheckoutDate,
     calcMinCheckoutDate,
+    adults,
+    setAdults,
+    childrens,
+    setChildrens,
+    isBooked,
+    handleBookNowClick,
   } = props;
 
   const discountPrice = price - (price / 100) * discount;
+
+  const calcNumberOfDays = () => {
+    if (!checkinDate || !checkoutDate) return 0;
+    const timeDiff = checkoutDate.getTime() - checkinDate.getTime();
+    const numberOfDays = Math.ceil(timeDiff / (24 * 60 * 60 * 1000));
+    return numberOfDays;
+  };
 
   return (
     <article className="px-7 py-6">
@@ -69,7 +88,7 @@ export const BookRoomCheck: FC<Props> = props => {
             className="w-full rounded-lg border border-gray-300 p-2.5 text-black focus:border-primary focus:ring-primary"
           />
         </div>
-        <div className="w-1/2 pr-2">
+        <div className="w-1/2 pl-2">
           <label
             htmlFor="check-out-date"
             className="block text-sm font-medium text-gray-900 dark:text-gray-400"
@@ -87,6 +106,59 @@ export const BookRoomCheck: FC<Props> = props => {
           />
         </div>
       </aside>
+
+      <aside className="mt-4 flex">
+        <div className="w-1/2 pr-2">
+          <label
+            htmlFor="adults"
+            className="block text-sm font-medium text-gray-900 dark:text-gray-400"
+          >
+            Adults
+          </label>
+          <input
+            type="number"
+            id="adults"
+            value={adults}
+            onChange={e => setAdults(+e.target.value)}
+            min={1}
+            max={5}
+            className="w-full rounded-lg border border-gray-300 p-2.5"
+          />
+        </div>
+        <div className="w-1/2 pl-2">
+          <label
+            htmlFor="children"
+            className="block text-sm font-medium text-gray-900 dark:text-gray-400"
+          >
+            Children
+          </label>
+          <input
+            type="number"
+            id="children"
+            value={childrens}
+            onChange={e => setChildrens(+e.target.value)}
+            min={0}
+            max={3}
+            className="w-full rounded-lg border border-gray-300 p-2.5"
+          />
+        </div>
+      </aside>
+
+      {calcNumberOfDays() > 0 ? (
+        <p className="mt-3">
+          Total price: $ {calcNumberOfDays() * discountPrice}
+        </p>
+      ) : (
+        <></>
+      )}
+
+      <button
+        disabled={isBooked}
+        onClick={handleBookNowClick}
+        className="btn-primary mt-6 w-full disabled:cursor-not-allowed disabled:bg-gray-500"
+      >
+        {isBooked ? "Booked" : "Book Now"}
+      </button>
     </article>
   );
 };
