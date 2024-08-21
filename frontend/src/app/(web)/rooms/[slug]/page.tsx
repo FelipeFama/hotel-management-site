@@ -51,6 +51,8 @@ export default function RoomDetails(props: { params: { slug: string } }) {
     const numOfDays = calcNumberOfDays();
 
     const hotelRoomSlug = room.slug.current;
+
+    //Integrate Stripe
   };
 
   const calcNumberOfDays = () => {
