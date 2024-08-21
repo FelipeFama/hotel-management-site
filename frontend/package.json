@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@sanity/vision": "^3.47.1",
+    "axios": "^1.7.4",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
     "next-auth-sanity": "^1.5.3",
