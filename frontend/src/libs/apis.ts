@@ -1,4 +1,4 @@
-import { Room } from "@/models/room";
+import { CreateBookingDto, Room } from "@/models/room";
 import { sanityClient } from "./sanity";
 import * as queries from "./sanityQueries";
 
@@ -31,3 +31,5 @@ export async function getRoom(slug: string) {
 
   return result;
 }
+
+export const createBooking = async ({}: CreateBookingDto) => {};
