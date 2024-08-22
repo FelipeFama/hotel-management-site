@@ -11,6 +11,8 @@ import { GiSmokeBomb } from "react-icons/gi";
 import { BookRoomCheck } from "@/components/Sections/BookRoomCheck/BookRoomCheck";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import axios from "axios";
+import { getStripe } from "@/libs/stripe";
 
 export default function RoomDetails(props: { params: { slug: string } }) {
   const {
@@ -41,7 +43,7 @@ export default function RoomDetails(props: { params: { slug: string } }) {
     return null;
   };
 
-  const handleBookNowClick = () => {
+  const handleBookNowClick = async () => {
     if (!checkinDate || !checkoutDate)
       return toast.error("Please provide checkin / checkout date");
 
@@ -53,6 +55,31 @@ export default function RoomDetails(props: { params: { slug: string } }) {
     const hotelRoomSlug = room.slug.current;
 
     //Integrate Stripe
+    const stripe = await getStripe();
+
+    try {
+      const { data: stripeSession } = await axios.post("/api/stripe", {
+        checkinDate,
+        checkoutDate,
+        adults,
+        children: childrens,
+        numOfDays,
+        hotelRoomSlug,
+      });
+
+      if (stripe) {
+        const result = await stripe.redirectToCheckout({
+          sessionId: stripeSession.id,
+        });
+
+        if (result.error) {
+          toast.error("Payment Failed");
+        }
+      }
+    } catch (error) {
+      console.log("Error: ", error);
+      toast.error("An error occured");
+    }
   };
 
   const calcNumberOfDays = () => {
