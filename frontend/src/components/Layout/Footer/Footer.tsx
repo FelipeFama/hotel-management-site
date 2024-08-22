@@ -16,7 +16,7 @@ export default function Footer() {
             <p>123 Road</p>
             <figcaption className="flex items-center py-4">
               <BsFillSendFill />
-              <p className="ml-2">codewithlari</p>
+              <p className="ml-2">codewithfelipe</p>
             </figcaption>
             <figcaption className="flex items-center">
               <BsTelephoneOutbound />
