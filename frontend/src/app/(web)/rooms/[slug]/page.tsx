@@ -50,7 +50,7 @@ export default function RoomDetails(props: { params: { slug: string } }) {
     if (checkinDate > checkoutDate)
       return toast.error("Please choose a valid checkin period");
 
-    const numOfDays = calcNumberOfDays();
+    const numberOfDays = calcNumberOfDays();
 
     const hotelRoomSlug = room.slug.current;
 
@@ -63,7 +63,7 @@ export default function RoomDetails(props: { params: { slug: string } }) {
         checkoutDate,
         adults,
         children: childrens,
-        numOfDays,
+        numberOfDays,
         hotelRoomSlug,
       });
 
