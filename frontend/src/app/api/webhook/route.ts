@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
+import { RequestData } from "../stripe/route";
+import { createBooking } from "@/libs/apis";
 
 const checkout_session_completed = "checkout.session.completed";
 
@@ -21,15 +23,40 @@ export async function POST(req: Request, res: Response) {
     return new NextResponse(`Webhook Error: ${error.message}`, { status: 500 });
   }
 
-  console.log(event)
+  //console.log(event);
 
   //load our event
   switch (event.type) {
     case checkout_session_completed:
       const session = event.data.object;
-      console.log(session);
 
       // Create a booking
+      const {
+        // @ts-ignore
+        metadata: {
+          adults,
+          checkinDate,
+          checkoutDate,
+          children,
+          hotelRoom,
+          numberOfDays,
+          user,
+          discount,
+          totalPrice,
+        },
+      }: RequestData = session as unknown as RequestData;
+
+      await createBooking({
+        adults: Number(adults),
+        checkinDate,
+        checkoutDate,
+        children: Number(children),
+        hotelRoom,
+        numberOfDays: Number(numberOfDays),
+        discount: Number(discount),
+        totalPrice: Number(totalPrice),
+        user,
+      });
 
       return NextResponse.json("Booking sucessful", {
         status: 200,
@@ -39,4 +66,9 @@ export async function POST(req: Request, res: Response) {
     default:
       console.log(`Unhandled event type ${event.type}`);
   }
+
+  return NextResponse.json("Booking successful", {
+    status: 200,
+    statusText: "Event received",
+  });
 }
