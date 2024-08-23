@@ -71,3 +71,18 @@ export const createBooking = async ({
 
   return data;
 };
+
+export const updateHotelRoom = async (hotelRoomId: string) => {
+  const mutation = {
+    mutations: [
+      {
+        patch: {
+          id: hotelRoomId,
+          set: {
+            isBooked: true,
+          },
+        },
+      },
+    ],
+  };
+};

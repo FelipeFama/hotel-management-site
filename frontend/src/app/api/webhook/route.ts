@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { RequestData } from "../stripe/route";
-import { createBooking } from "@/libs/apis";
+import { createBooking, updateHotelRoom } from "@/libs/apis";
 
 const checkout_session_completed = "checkout.session.completed";
 
@@ -57,6 +57,9 @@ export async function POST(req: Request, res: Response) {
         totalPrice: Number(totalPrice),
         user,
       });
+
+      // Update hotel Room
+      await updateHotelRoom(hotelRoom);
 
       return NextResponse.json("Booking sucessful", {
         status: 200,
