@@ -19,7 +19,6 @@ export async function getRooms() {
     {},
     { cache: "no-cache" },
   );
-
   return result;
 }
 

@@ -16,7 +16,7 @@ export default {
       title: "Name",
       type: "string",
       validation: Rule =>
-        Rule.required().max(50).error("Maximum 50 characters"),
+        Rule.required().max(50).error("Maximum 50 Characters"),
     }),
     defineField({
       name: "slug",
@@ -31,14 +31,14 @@ export default {
       title: "Description",
       type: "text",
       validation: Rule =>
-        Rule.required().min(100).error("Minimum 100 characters"),
+        Rule.required().min(100).error("Minimum 100 Characters"),
     }),
     defineField({
       name: "price",
       title: "Price",
       type: "number",
       validation: Rule =>
-        Rule.required().min(100).error("Minimum 100 characters"),
+        Rule.required().min(100).error("Minimum 100 Characters"),
     }),
     defineField({
       name: "discount",
@@ -71,7 +71,7 @@ export default {
         { name: "url", type: "url", title: "URL" },
         { name: "file", type: "file", title: "File" },
       ],
-      validation: Rule => Rule.required().error("Cover image is required"),
+      validation: Rule => Rule.required().error("Cover Image is required"),
     }),
     defineField({
       name: "type",
@@ -97,8 +97,8 @@ export default {
       type: "string",
     }),
     defineField({
-      name: "NumberOfBeds",
-      title: "Number of Beds",
+      name: "numberOfBeds",
+      title: "Number Of Beds",
       type: "number",
       validation: Rule => Rule.min(1),
       initialValue: 1,
