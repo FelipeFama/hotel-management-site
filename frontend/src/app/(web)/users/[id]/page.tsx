@@ -32,7 +32,7 @@ export default function UserDetails(props: { params: { id: string } }) {
   if (typeof userBookings === "undefined" && !isLoading)
     throw new Error("Cannot fetch data");
 
-  console.log(userBookings);
+  console.log("userData:", userData);
 
   return (
     <section>
