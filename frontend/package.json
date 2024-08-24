@@ -12,6 +12,7 @@
     "@sanity/vision": "^3.47.1",
     "@stripe/stripe-js": "^4.3.0",
     "axios": "^1.7.4",
+    "chart.js": "^4.4.4",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
     "next-auth-sanity": "^1.5.3",
