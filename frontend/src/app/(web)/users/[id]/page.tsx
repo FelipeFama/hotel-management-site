@@ -12,6 +12,7 @@ import { useState } from "react";
 import { BsJournalBookmarkFill } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
 import { Table } from "@/components/Table/Table";
+import { Chart } from "@/components/Chart/Chart";
 
 export default function UserDetails(props: { params: { id: string } }) {
   const {
@@ -144,10 +145,16 @@ export default function UserDetails(props: { params: { id: string } }) {
             </ol>
           </nav>
 
-          {currentNav == "bookings" ? (
+          {currentNav === "bookings" ? (
             userBookings && (
               <Table bookingDetails={userBookings} setRoomId={setRoomId} />
             )
+          ) : (
+            <></>
+          )}
+
+          {currentNav === "amount" ? (
+            userBookings && <Chart userBookings={userBookings} />
           ) : (
             <></>
           )}
