@@ -8,11 +8,18 @@ import useSWR from "swr";
 import LoadingSpinner from "../../loading";
 import { FaSignOutAlt } from "react-icons/fa";
 import { signOut } from "next-auth/react";
+import { useState } from "react";
+import { BsJournalBookmarkFill } from "react-icons/bs";
+import { GiMoneyStack } from "react-icons/gi";
 
 export default function UserDetails(props: { params: { id: string } }) {
   const {
     params: { id: userId },
   } = props;
+
+  const [currentNav, setCurrentNav] = useState<
+    "bookings" | "amount" | "ratings"
+  >("bookings");
 
   const fetchUserBooking = async () => getUserBookings(userId);
   const fetchUserData = async () => {
@@ -41,7 +48,7 @@ export default function UserDetails(props: { params: { id: string } }) {
   if (loadingUserData) return <LoadingSpinner />;
   if (!userData) throw new Error("Cannot fetch data");
 
-  console.log("userData:", userData);
+  //console.log("userData:", userData);
 
   return (
     <section className="container mx-auto px-2 py-10 md:px-4">
@@ -99,6 +106,41 @@ export default function UserDetails(props: { params: { id: string } }) {
               onClick={() => signOut({ callbackUrl: "/" })}
             />
           </aside>
+
+          <nav className="sticky top-0 mx-auto mb-8 mt-7 w-fit rounded-lg border border-gray-200 bg-gray-50 px-2 py-3 text-gray-700 md:w-full md:px-5">
+            <ol
+              className={`${currentNav === "bookings" ? "text-blue-600" : "text-gray-700"} mr-1 inline-flex items-center space-x-1 md:mr-5 md:space-x-3`}
+            >
+              <li
+                onClick={() => setCurrentNav("bookings")}
+                className="inline-flex cursor-pointer items-center"
+              >
+                <BsJournalBookmarkFill />
+                <a
+                  href="#"
+                  className="mx-1 inline-flex items-center text-xs font-medium md:mx-3 md:text-sm"
+                >
+                  Current Bookings
+                </a>
+              </li>
+            </ol>
+            <ol
+              className={`${currentNav == "amount" ? "text-blue-600" : "text-gray-700"} mr-1 inline-flex items-center space-x-1 md:mr-5 md:space-x-3`}
+            >
+              <li
+                onClick={() => setCurrentNav("amount")}
+                className="inline-flex cursor-pointer items-center"
+              >
+                <GiMoneyStack />
+                <a
+                  href="#"
+                  className="mx-1 inline-flex items-center text-xs font-medium md:mx-3 md:text-sm"
+                >
+                  Amount Spent
+                </a>
+              </li>
+            </ol>
+          </nav>
         </article>
       </section>
     </section>
