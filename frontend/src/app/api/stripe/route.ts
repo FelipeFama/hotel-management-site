@@ -54,7 +54,7 @@ export async function POST(req: Request, res: Response) {
     const discountPrice = room.price - (room.price / 100) * room.discount;
     const totalPrice = discountPrice * numberOfDays;
 
-    //Create a stripe payment
+    // Create a stripe payment
     const stripeSession = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items: [
@@ -76,20 +76,21 @@ export async function POST(req: Request, res: Response) {
         adults,
         checkinDate: formattedCheckinDate,
         checkoutDate: formattedCheckoutDate,
-        children: room._id,
+        children,
+        hotelRoom: room._id,
         numberOfDays,
         user: userId,
         discount: room.discount,
         totalPrice,
       },
     });
-    
+
     return NextResponse.json(stripeSession, {
       status: 200,
       statusText: "Payment session created",
     });
   } catch (error: any) {
-    console.log("Payment failed ", error);
+    console.log("Payment falied", error);
     return new NextResponse(error, { status: 500 });
   }
 }

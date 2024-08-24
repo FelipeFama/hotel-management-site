@@ -22,15 +22,13 @@ export async function POST(req: Request, res: Response) {
   } catch (error: any) {
     return new NextResponse(`Webhook Error: ${error.message}`, { status: 500 });
   }
-
   //console.log(event);
-
-  //load our event
+  
+  // load our event
   switch (event.type) {
     case checkout_session_completed:
       const session = event.data.object;
 
-      // Create a booking
       const {
         // @ts-ignore
         metadata: {
@@ -58,10 +56,10 @@ export async function POST(req: Request, res: Response) {
         user,
       });
 
-      // Update hotel Room
+      //   Update hotel Room
       await updateHotelRoom(hotelRoom);
 
-      return NextResponse.json("Booking sucessful", {
+      return NextResponse.json("Booking successful", {
         status: 200,
         statusText: "Booking Successful",
       });
@@ -70,8 +68,8 @@ export async function POST(req: Request, res: Response) {
       console.log(`Unhandled event type ${event.type}`);
   }
 
-  return NextResponse.json("Booking successful", {
+  return NextResponse.json("Event Received", {
     status: 200,
-    statusText: "Event received",
+    statusText: "Event Received",
   });
 }
