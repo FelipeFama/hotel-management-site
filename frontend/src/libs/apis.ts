@@ -93,3 +93,15 @@ export const updateHotelRoom = async (hotelRoomId: string) => {
 
   return data;
 };
+
+export async function getUserBookings(userId: string) {
+  const result = await sanityClient.fetch<>(
+    queries.getUserBookingsQuery,
+    {
+      userId,
+    },
+    { cache: "no-cache" },
+  );
+
+  return result;
+}
