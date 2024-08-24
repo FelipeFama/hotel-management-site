@@ -141,6 +141,8 @@ export default function UserDetails(props: { params: { id: string } }) {
               </li>
             </ol>
           </nav>
+
+          {currentNav == "bookings" ? userBookings && <>Table</> : <></>}
         </article>
       </section>
     </section>
