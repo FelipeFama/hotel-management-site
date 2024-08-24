@@ -45,8 +45,8 @@ export default function UserDetails(props: { params: { id: string } }) {
 
   return (
     <section className="container mx-auto px-2 py-10 md:px-4">
-      <article className="grid gap-10 md:grid-cols-12">
-        <div className="sticky top-10 hidden h-fit rounded-lg bg-[#eff0f2] px-6 py-4 text-black shadow-lg md:col-span-4 md:block lg:col-span-3">
+      <section className="grid gap-10 md:grid-cols-12">
+        <article className="sticky top-10 hidden h-fit rounded-lg bg-[#eff0f2] px-6 py-4 text-black shadow-lg md:col-span-4 md:block lg:col-span-3">
           <figure className="mx-auto mb-5 h-28 w-28 overflow-hidden rounded-full md:h-[143px] md:w-[143px]">
             <Image
               src={userData.image}
@@ -70,8 +70,37 @@ export default function UserDetails(props: { params: { id: string } }) {
               onClick={() => signOut({ callbackUrl: "/" })}
             />
           </aside>
-        </div>
-      </article>
+        </article>
+
+        <article className="md:col-span-8 lg:col-span-9">
+          <aside className="flex items-center">
+            <h5 className="mr-3 text-2xl font-bold">Hello, {userData.name}</h5>
+          </aside>
+          <figure className="h-14 w-14 overflow-hidden rounded-l-full md:hidden">
+            <Image
+              src={userData.image}
+              alt="User"
+              width={56}
+              height={56}
+              className="img scale-animation rounded-full"
+            />
+          </figure>
+          <p className="block w-fit py-2 text-sm md:hidden">
+            {userData.about ?? ""}
+          </p>
+
+          <p className="py-2 text-xs font-medium">
+            Joined In {userData._createdAt.split("T")[0]}
+          </p>
+          <aside className="my-2 flex items-center md:hidden">
+            <p className="mr-2">Sign out</p>
+            <FaSignOutAlt
+              className="cursor-pointer text-3xl"
+              onClick={() => signOut({ callbackUrl: "/" })}
+            />
+          </aside>
+        </article>
+      </section>
     </section>
   );
 }
