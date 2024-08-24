@@ -23,6 +23,9 @@ export default function UserDetails(props: { params: { id: string } }) {
     "bookings" | "amount" | "ratings"
   >("bookings");
   const [roomId, setRoomId] = useState<string | null>(null);
+  const [isRatingVisible, setIsRatingVisible] = useState(false);
+
+  const toggleRatingModal = () => setIsRatingVisible(prevState => !prevState);
 
   const fetchUserBooking = async () => getUserBookings(userId);
   const fetchUserData = async () => {
@@ -147,7 +150,11 @@ export default function UserDetails(props: { params: { id: string } }) {
 
           {currentNav === "bookings" ? (
             userBookings && (
-              <Table bookingDetails={userBookings} setRoomId={setRoomId} />
+              <Table
+                bookingDetails={userBookings}
+                setRoomId={setRoomId}
+                toggleRatingModal={toggleRatingModal}
+              />
             )
           ) : (
             <></>
