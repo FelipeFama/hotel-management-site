@@ -1,6 +1,7 @@
 "use client";
 
 import { getUserBookings } from "@/libs/apis";
+import { User } from "@/models/user";
 import axios from "axios";
 import useSWR from "swr";
 
@@ -11,7 +12,7 @@ export default function UserDetails(props: { params: { id: string } }) {
 
   const fetchUserBooking = async () => getUserBookings(userId);
   const fetchUserData = async () => {
-    const { data } = await axios.get("/api/users");
+    const { data } = await axios.get<User>("/api/users");
     return data;
   };
 
