@@ -11,6 +11,7 @@ import { signOut } from "next-auth/react";
 import { useState } from "react";
 import { BsJournalBookmarkFill } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
+import { Table } from "@/components/Table/Table";
 
 export default function UserDetails(props: { params: { id: string } }) {
   const {
@@ -20,6 +21,7 @@ export default function UserDetails(props: { params: { id: string } }) {
   const [currentNav, setCurrentNav] = useState<
     "bookings" | "amount" | "ratings"
   >("bookings");
+  const [roomId, setRoomId] = useState<string | null>(null);
 
   const fetchUserBooking = async () => getUserBookings(userId);
   const fetchUserData = async () => {
@@ -142,7 +144,13 @@ export default function UserDetails(props: { params: { id: string } }) {
             </ol>
           </nav>
 
-          {currentNav == "bookings" ? userBookings && <>Table</> : <></>}
+          {currentNav == "bookings" ? (
+            userBookings && (
+              <Table bookingDetails={userBookings} setRoomId={setRoomId} />
+            )
+          ) : (
+            <></>
+          )}
         </article>
       </section>
     </section>
