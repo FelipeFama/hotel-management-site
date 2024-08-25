@@ -117,7 +117,7 @@ export async function getUserData(userId: string) {
   return result;
 }
 
-export async function checkReviewExist(
+export async function checkReviewExists(
   userId: string,
   hotelRoomId: string,
 ): Promise<null | { _id: string }> {
@@ -129,7 +129,7 @@ export async function checkReviewExist(
     userId,
     hotelRoomId,
   };
-  
+
   const result = await sanityClient.fetch(query, params);
 
   return result ? result : null;

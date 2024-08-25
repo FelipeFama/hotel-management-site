@@ -15,6 +15,7 @@ import { Table } from "@/components/Table/Table";
 import { Chart } from "@/components/Chart/Chart";
 import { RatingModal } from "@/components/RatingModal/RatingModal";
 import { BackDrop } from "@/components/BackDrop/BackDrop";
+import toast from "react-hot-toast";
 
 export default function UserDetails(props: { params: { id: string } }) {
   const {
@@ -27,13 +28,36 @@ export default function UserDetails(props: { params: { id: string } }) {
   const [roomId, setRoomId] = useState<string | null>(null);
   const [isRatingVisible, setIsRatingVisible] = useState(false);
   const [isSubmittingReview, setIsSubmittingReview] = useState(false);
-  const [ratingValue, setRatingValue] = useState(0);
+  const [ratingValue, setRatingValue] = useState<number | null>(0);
   const [ratingText, setRatingText] = useState("");
 
   const toggleRatingModal = () => setIsRatingVisible(prevState => !prevState);
 
   const reviewSubmitHandler = async () => {
-    console.log(ratingText, ratingValue);
+    if (!ratingText.trim().length || !ratingValue) {
+      return toast.error("Please provide a rating text and a rating");
+    }
+
+    if (!roomId) toast.error("Id not provided");
+
+    try {
+      const { data } = await axios.post("/api/users", {
+        reviewText: ratingText,
+        ratingValue,
+        roomId,
+      });
+      console.log(data);
+      toast.success("Review Submitted");
+    } catch (error) {
+      console.log(error);
+      toast.error("Review Failed");
+    } finally {
+      setRatingText("");
+      setRatingValue(null);
+      setRoomId(null);
+      setIsSubmittingReview(false);
+      setIsRatingVisible(false);
+    }
   };
 
   const fetchUserBooking = async () => getUserBookings(userId);

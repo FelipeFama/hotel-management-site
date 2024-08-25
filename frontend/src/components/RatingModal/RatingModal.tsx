@@ -3,11 +3,11 @@ import { BsStarFill } from "react-icons/bs";
 
 type Props = {
   isOpen: boolean;
-  ratingValue: number;
-  setRatingValue: Dispatch<SetStateAction<number>>;
+  ratingValue: number | null;
+  setRatingValue: Dispatch<SetStateAction<number | null>>;
   ratingText: string;
   setRatingText: Dispatch<SetStateAction<string>>;
-  reviewSubmitHandler: () => Promise<void>;
+  reviewSubmitHandler: () => Promise<string | undefined>;
   isSubmittingReview: boolean;
   toggleRatingModal: () => void;
 };
