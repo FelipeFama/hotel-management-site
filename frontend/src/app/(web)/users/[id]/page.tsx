@@ -13,6 +13,8 @@ import { BsJournalBookmarkFill } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
 import { Table } from "@/components/Table/Table";
 import { Chart } from "@/components/Chart/Chart";
+import { RatingModal } from "@/components/RatingModal/RatingModal";
+import { BackDrop } from "@/components/BackDrop/BackDrop";
 
 export default function UserDetails(props: { params: { id: string } }) {
   const {
@@ -167,6 +169,9 @@ export default function UserDetails(props: { params: { id: string } }) {
           )}
         </article>
       </section>
+
+      <RatingModal isOpen={isRatingVisible} />
+      <BackDrop isOpen={isRatingVisible} />
     </section>
   );
 }
