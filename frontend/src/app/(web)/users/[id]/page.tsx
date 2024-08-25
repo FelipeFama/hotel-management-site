@@ -181,6 +181,7 @@ export default function UserDetails(props: { params: { id: string } }) {
         setRatingText={setRatingText}
         isSubmittingReview={isSubmittingReview}
         reviewSubmitHandler={reviewSubmitHandler}
+        toggleRatingModal={toggleRatingModal}
       />
       <BackDrop isOpen={isRatingVisible} />
     </section>
