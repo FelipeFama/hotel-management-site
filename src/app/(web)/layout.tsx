@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+
 import "./globals.css";
-import Header from "@/components/Layout/Header/Header";
-import Footer from "@/components/Layout/Footer/Footer";
-import { ThemeProvider } from "../../components/ThemeProvider/ThemeProvider";
 import { NextAuthProvider } from "@/components/AuthProvider/AuthProvider";
+import Footer from "@/components/Layout/Footer/Footer";
+import Header from "@/components/Layout/Header/Header";
 import { Toast } from "@/components/Toast/Toast";
+
+import { ThemeProvider } from "../../components/ThemeProvider/ThemeProvider";
 
 const poppins = Poppins({
   subsets: ["latin"],

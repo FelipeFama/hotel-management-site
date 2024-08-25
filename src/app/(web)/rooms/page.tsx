@@ -1,12 +1,14 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
+
+import useSWR from "swr";
+
 import { RoomCard } from "@/components/Sections/RoomCard/RoomCard";
 import { Search } from "@/components/Sections/Search/Search";
 import { getRooms } from "@/libs/apis";
 import { Room } from "@/models/room";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import useSWR from "swr";
 
 export default function Rooms() {
   const [roomTypeFilter, setRoomTypeFilter] = useState("");

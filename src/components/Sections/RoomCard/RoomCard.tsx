@@ -1,7 +1,8 @@
-import { Room } from "@/models/room";
-import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { FC } from "react";
+
+import { Room } from "@/models/room";
 
 type Props = {
   room: Room;

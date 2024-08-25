@@ -1,21 +1,25 @@
 "use client";
 
-import { getUserBookings } from "@/libs/apis";
-import { User } from "@/models/user";
+import { signOut } from "next-auth/react";
 import Image from "next/image";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { BsJournalBookmarkFill } from "react-icons/bs";
+import { FaSignOutAlt } from "react-icons/fa";
+import { GiMoneyStack } from "react-icons/gi";
+
 import axios from "axios";
 import useSWR from "swr";
-import LoadingSpinner from "../../loading";
-import { FaSignOutAlt } from "react-icons/fa";
-import { signOut } from "next-auth/react";
-import { useState } from "react";
-import { BsJournalBookmarkFill } from "react-icons/bs";
-import { GiMoneyStack } from "react-icons/gi";
+
 import { Table } from "@/components/Table/Table";
+import { getUserBookings } from "@/libs/apis";
+import { User } from "@/models/user";
+
+import LoadingSpinner from "../../loading";
+
 import { Chart } from "@/components/Chart/Chart";
 import { RatingModal } from "@/components/RatingModal/RatingModal";
 import { BackDrop } from "@/components/BackDrop/BackDrop";
-import toast from "react-hot-toast";
 
 export default function UserDetails(props: { params: { id: string } }) {
   const {

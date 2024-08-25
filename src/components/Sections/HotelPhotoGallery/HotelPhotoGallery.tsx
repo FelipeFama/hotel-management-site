@@ -1,10 +1,11 @@
 "use client";
 
-import { FC, Fragment, useState } from "react";
-import { Image as ImageType } from "@/models/room";
 import Image from "next/image";
+import { FC, Fragment, useState } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
+
+import { Image as ImageType } from "@/models/room";
 
 export const HotelPhotoGallery: FC<{ photos: ImageType[] }> = ({ photos }) => {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);

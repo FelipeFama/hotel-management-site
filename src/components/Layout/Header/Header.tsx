@@ -1,11 +1,12 @@
 "use client";
-import ThemeContext from "@/context/themeContext";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
+
+import ThemeContext from "@/context/themeContext";
 
 export default function Header() {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);

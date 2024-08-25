@@ -1,8 +1,9 @@
 "use client";
 
-import { Booking } from "@/models/booking";
 import { useRouter } from "next/navigation";
 import { Dispatch, FC, SetStateAction } from "react";
+
+import { Booking } from "@/models/booking";
 
 type Props = {
   bookingDetails: Booking[];

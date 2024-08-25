@@ -1,7 +1,10 @@
-import { Review } from "@/models/review";
-import axios from "axios";
 import { FC } from "react";
+
+import axios from "axios";
 import useSWR from "swr";
+
+import { Review } from "@/models/review";
+
 import { Rating } from "../Rating/Rating";
 
 export const RoomReview: FC<{ roomId: string }> = ({ roomId }) => {
@@ -20,7 +23,7 @@ export const RoomReview: FC<{ roomId: string }> = ({ roomId }) => {
   if (typeof roomReviews === "undefined" && !isLoading)
     throw new Error("Cannot fetch data");
 
-  //console.log(roomReviews);
+  // console.log(roomReviews);
   return (
     <>
       {roomReviews &&

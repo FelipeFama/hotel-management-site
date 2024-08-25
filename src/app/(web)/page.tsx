@@ -7,19 +7,17 @@ import { getFeaturedRoom } from "@/libs/apis";
 
 export default async function Home() {
   const featuredRoom = await getFeaturedRoom();
-  //console.log(featuredRoom);
-  //throw new Error("Unable to fetch");
 
   return (
     <>
       <HeroSection />
-      {/*Page search*/}
+      {/* Page search*/}
       <PageSearch />
-      {/*Featured Room*/}
+      {/* Featured Room*/}
       <FeaturedRoom featuredRoom={featuredRoom} />
-      {/*Gallery*/}
+      {/* Gallery*/}
       <Gallery />
-      {/*News letter*/}
+      {/* News letter*/}
       <NewsLetter />
     </>
   );

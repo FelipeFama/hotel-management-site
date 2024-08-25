@@ -1,5 +1,6 @@
-import { getRoomReviews } from "@/libs/apis";
 import { NextResponse } from "next/server";
+
+import { getRoomReviews } from "@/libs/apis";
 
 export async function GET(
   req: Request,

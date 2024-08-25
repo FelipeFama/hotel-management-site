@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+
 import { Search } from "../Search/Search";
 
 export const PageSearch = () => {

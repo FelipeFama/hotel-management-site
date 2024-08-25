@@ -1,19 +1,22 @@
 "use client";
 
-import { getRoom } from "@/libs/apis";
-import useSWR from "swr";
-import LoadingSpinner from "../../loading";
-import { HotelPhotoGallery } from "@/components/Sections/HotelPhotoGallery/HotelPhotoGallery";
-import { MdOutlineCleaningServices } from "react-icons/md";
-import { LiaFireExtinguisherSolid } from "react-icons/lia";
-import { AiOutlineMedicineBox } from "react-icons/ai";
-import { GiSmokeBomb } from "react-icons/gi";
-import { BookRoomCheck } from "@/components/Sections/BookRoomCheck/BookRoomCheck";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { AiOutlineMedicineBox } from "react-icons/ai";
+import { GiSmokeBomb } from "react-icons/gi";
+import { LiaFireExtinguisherSolid } from "react-icons/lia";
+import { MdOutlineCleaningServices } from "react-icons/md";
+
 import axios from "axios";
-import { getStripe } from "@/libs/stripe";
+import useSWR from "swr";
+
+import { BookRoomCheck } from "@/components/Sections/BookRoomCheck/BookRoomCheck";
+import { HotelPhotoGallery } from "@/components/Sections/HotelPhotoGallery/HotelPhotoGallery";
 import { RoomReview } from "@/components/Sections/RoomReview/RoomReview";
+import { getRoom } from "@/libs/apis";
+import { getStripe } from "@/libs/stripe";
+
+import LoadingSpinner from "../../loading";
 
 export default function RoomDetails(props: { params: { slug: string } }) {
   const {
@@ -55,7 +58,7 @@ export default function RoomDetails(props: { params: { slug: string } }) {
 
     const hotelRoomSlug = room.slug.current;
 
-    //Integrate Stripe
+    // Integrate Stripe
     const stripe = await getStripe();
 
     try {

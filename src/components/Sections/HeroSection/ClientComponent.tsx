@@ -1,7 +1,8 @@
 "use client";
 
-import { CountUpNumber } from "../../CountUpNumber/CountUpNumber";
 import React, { FC } from "react";
+
+import { CountUpNumber } from "../../CountUpNumber/CountUpNumber";
 
 type Props = {
   heading: React.ReactNode;
