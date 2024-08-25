@@ -32,7 +32,9 @@ export default function UserDetails(props: { params: { id: string } }) {
 
   const toggleRatingModal = () => setIsRatingVisible(prevState => !prevState);
 
-  const reviewSubmitHandler = async () => {};
+  const reviewSubmitHandler = async () => {
+    console.log(ratingText, ratingValue);
+  };
 
   const fetchUserBooking = async () => getUserBookings(userId);
   const fetchUserData = async () => {
