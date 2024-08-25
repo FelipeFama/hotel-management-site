@@ -38,8 +38,16 @@
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "react-hooks/exhaustive-deps": "off",
-    "import-helpers/order-imports": [
+    "n/handle-callback-err": "off",
+    "@typescript-eslint/no-unused-vars": [
       "warn",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "spaced-comment": "off",
+    "import-helpers/order-imports": [
+      "off",
       {
         "newlinesBetween": "never",
         "groups": ["module", "/^@shared/", ["parent", "sibling", "index"]],
