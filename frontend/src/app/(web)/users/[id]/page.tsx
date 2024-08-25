@@ -26,6 +26,7 @@ export default function UserDetails(props: { params: { id: string } }) {
   >("bookings");
   const [roomId, setRoomId] = useState<string | null>(null);
   const [isRatingVisible, setIsRatingVisible] = useState(false);
+  const [ratingValue, setRatingValue] = useState(0);
 
   const toggleRatingModal = () => setIsRatingVisible(prevState => !prevState);
 
