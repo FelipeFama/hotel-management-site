@@ -163,9 +163,9 @@ export default function RoomDetails(props: { params: { slug: string } }) {
                 <div className="mb-4 items-center">
                   <p className="font-semibold md:text-lg">Customer Reviews</p>
                 </div>
-                <figcaption className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   {/* Reviews */}
-                </figcaption>
+                </div>
               </aside>
             </article>
           </div>

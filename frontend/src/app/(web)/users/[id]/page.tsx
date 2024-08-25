@@ -40,6 +40,8 @@ export default function UserDetails(props: { params: { id: string } }) {
 
     if (!roomId) toast.error("Id not provided");
 
+    setIsSubmittingReview(true);
+
     try {
       const { data } = await axios.post("/api/users", {
         reviewText: ratingText,
