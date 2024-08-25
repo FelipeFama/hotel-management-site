@@ -164,7 +164,7 @@ export const updateReview = async ({
   return data;
 };
 
-export const createReviw = async ({
+export const createReview = async ({
   hotelRoomId,
   reviewText,
   userId,
