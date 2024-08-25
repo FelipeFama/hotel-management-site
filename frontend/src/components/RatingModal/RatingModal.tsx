@@ -7,7 +7,8 @@ type Props = {
   setRatingValue: Dispatch<SetStateAction<number>>;
   ratingText: string;
   setRatingText: Dispatch<SetStateAction<string>>;
-  reviewSubmitHandler: () => Promise<string>;
+  reviewSubmitHandler: () => Promise<void>;
+  isSubmittingReview: boolean;
 };
 
 export const RatingModal: FC<Props> = props => {
@@ -18,6 +19,7 @@ export const RatingModal: FC<Props> = props => {
     ratingText,
     setRatingText,
     reviewSubmitHandler,
+    isSubmittingReview,
   } = props;
 
   const starValues = [1, 2, 3, 4, 5];
@@ -69,7 +71,10 @@ export const RatingModal: FC<Props> = props => {
           <button
             onClick={reviewSubmitHandler}
             className="rounded-md bg-primary px-4 py-2 text-white"
-          ></button>
+            disabled={isSubmittingReview}
+          >
+            {isSubmittingReview ? "Submitting" : "Submit"}
+          </button>
         </aside>
       </article>
     </section>

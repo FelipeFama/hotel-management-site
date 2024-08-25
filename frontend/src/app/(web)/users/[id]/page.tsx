@@ -26,10 +26,13 @@ export default function UserDetails(props: { params: { id: string } }) {
   >("bookings");
   const [roomId, setRoomId] = useState<string | null>(null);
   const [isRatingVisible, setIsRatingVisible] = useState(false);
+  const [isSubmittingReview, setIsSubmittingReview] = useState(false);
   const [ratingValue, setRatingValue] = useState(0);
   const [ratingText, setRatingText] = useState("");
 
   const toggleRatingModal = () => setIsRatingVisible(prevState => !prevState);
+
+  const reviewSubmitHandler = async () => {};
 
   const fetchUserBooking = async () => getUserBookings(userId);
   const fetchUserData = async () => {
@@ -176,6 +179,8 @@ export default function UserDetails(props: { params: { id: string } }) {
         setRatingValue={setRatingValue}
         ratingText={ratingText}
         setRatingText={setRatingText}
+        isSubmittingReview={isSubmittingReview}
+        reviewSubmitHandler={reviewSubmitHandler}
       />
       <BackDrop isOpen={isRatingVisible} />
     </section>
