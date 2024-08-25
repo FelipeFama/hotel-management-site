@@ -1,12 +1,14 @@
-import { FC } from "react";
+import { Dispatch, FC, SetStateAction } from "react";
 import { BsStarFill } from "react-icons/bs";
 
 type Props = {
   isOpen: boolean;
+  ratingValue: number;
+  setRatingValue: Dispatch<SetStateAction<number>>;
 };
 
 export const RatingModal: FC<Props> = props => {
-  const { isOpen } = props;
+  const { isOpen, ratingValue, setRatingValue } = props;
 
   const starValues = [1, 2, 3, 4, 5];
   return (
@@ -27,7 +29,13 @@ export const RatingModal: FC<Props> = props => {
           </label>
           <div className="flex items-center">
             {starValues.map(value => (
-              <button key={value} onClick={() => null} className={`h-6 w-6`}>
+              <button
+                key={value}
+                onClick={() => setRatingValue(value)}
+                className={`h-6 w-6 ${
+                  ratingValue === value ? "text-yellow-500" : "text-gray-300"
+                }`}
+              >
                 <BsStarFill />
               </button>
             ))}

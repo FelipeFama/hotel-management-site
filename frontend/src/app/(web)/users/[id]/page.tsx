@@ -57,8 +57,6 @@ export default function UserDetails(props: { params: { id: string } }) {
   if (loadingUserData) return <LoadingSpinner />;
   if (!userData) throw new Error("Cannot fetch data");
 
-  //console.log("userData:", userData);
-
   return (
     <section className="container mx-auto px-2 py-10 md:px-4">
       <section className="grid gap-10 md:grid-cols-12">
@@ -171,7 +169,11 @@ export default function UserDetails(props: { params: { id: string } }) {
         </article>
       </section>
 
-      <RatingModal isOpen={isRatingVisible} />
+      <RatingModal
+        isOpen={isRatingVisible}
+        ratingValue={ratingValue}
+        setRatingValue={setRatingValue}
+      />
       <BackDrop isOpen={isRatingVisible} />
     </section>
   );
