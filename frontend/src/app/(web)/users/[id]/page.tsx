@@ -27,6 +27,7 @@ export default function UserDetails(props: { params: { id: string } }) {
   const [roomId, setRoomId] = useState<string | null>(null);
   const [isRatingVisible, setIsRatingVisible] = useState(false);
   const [ratingValue, setRatingValue] = useState(0);
+  const [ratingText, setRatingText] = useState("");
 
   const toggleRatingModal = () => setIsRatingVisible(prevState => !prevState);
 
@@ -173,6 +174,8 @@ export default function UserDetails(props: { params: { id: string } }) {
         isOpen={isRatingVisible}
         ratingValue={ratingValue}
         setRatingValue={setRatingValue}
+        ratingText={ratingText}
+        setRatingText={setRatingText}
       />
       <BackDrop isOpen={isRatingVisible} />
     </section>
