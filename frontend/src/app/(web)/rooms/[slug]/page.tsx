@@ -13,6 +13,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { getStripe } from "@/libs/stripe";
+import { RoomReview } from "@/components/Sections/RoomReview/RoomReview";
 
 export default function RoomDetails(props: { params: { slug: string } }) {
   const {
@@ -165,6 +166,7 @@ export default function RoomDetails(props: { params: { slug: string } }) {
                 </div>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   {/* Reviews */}
+                  <RoomReview roomId={room._id} />
                 </div>
               </aside>
             </article>

@@ -2,6 +2,7 @@ import { Review } from "@/models/review";
 import axios from "axios";
 import { FC } from "react";
 import useSWR from "swr";
+import { Rating } from "../Rating/Rating";
 
 export const RoomReview: FC<{ roomId: string }> = ({ roomId }) => {
   const fetchRoomReviews = async () => {
@@ -20,5 +21,23 @@ export const RoomReview: FC<{ roomId: string }> = ({ roomId }) => {
     throw new Error("Cannot fetch data");
 
   console.log(roomReviews);
-  return <article></article>;
+  return (
+    <>
+      {roomReviews &&
+        roomReviews.map(review => (
+          <article
+            key={review._id}
+            className="rounded-lg bg-gray-100 p-4 dark:bg-gray-900"
+          >
+            <aside className="mb-2 flex font-semibold">
+              <p>{review.user.name}</p>
+              <div className="ml-4 flex items-center text-lg text-tertiary-light">
+                <Rating rating={review.userRating} />
+              </div>
+            </aside>
+            <p>{review.text}</p>
+          </article>
+        ))}
+    </>
+  );
 };

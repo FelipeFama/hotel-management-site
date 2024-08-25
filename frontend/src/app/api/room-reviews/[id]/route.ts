@@ -1,10 +1,11 @@
+import { getRoomReviews } from "@/libs/apis";
 import { NextResponse } from "next/server";
 
 export async function GET(
   req: Request,
   { params }: { params: { id: string } },
 ) {
-  const rooomId = params.id;
+  const roomId = params.id;
 
   try {
     const roomReviews = await getRoomReviews(roomId);

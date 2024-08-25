@@ -207,4 +207,6 @@ export async function getRoomReviews(roomId: string) {
     },
     { cache: "no-cache" },
   );
+
+  return result;
 }
