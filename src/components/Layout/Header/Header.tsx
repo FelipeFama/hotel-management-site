@@ -25,7 +25,7 @@ export default function Header() {
         <ul className="ml-5 flex items-center">
           <li className="flex items-center">
             {session?.user ? (
-              <Link href={`/users/${session.user.id}`}>
+              <Link href={`/users/${session.user.id}`} aria-label="user">
                 {session.user.image ? (
                   <figure className="h-10 w-10 overflow-hidden rounded-full">
                     <Image
@@ -41,7 +41,7 @@ export default function Header() {
                 )}
               </Link>
             ) : (
-              <Link href="/auth">
+              <Link href="/auth" aria-label="user">
                 <FaUserCircle className="cursor-pointer" />
               </Link>
             )}
