@@ -11,15 +11,14 @@ import { GiMoneyStack } from "react-icons/gi";
 import axios from "axios";
 import useSWR from "swr";
 
+import { BackDrop } from "@/components/BackDrop/BackDrop";
+import { Chart } from "@/components/Chart/Chart";
+import { RatingModal } from "@/components/RatingModal/RatingModal";
 import { Table } from "@/components/Table/Table";
 import { getUserBookings } from "@/libs/apis";
 import { User } from "@/models/user";
 
 import LoadingSpinner from "../../loading";
-
-import { Chart } from "@/components/Chart/Chart";
-import { RatingModal } from "@/components/RatingModal/RatingModal";
-import { BackDrop } from "@/components/BackDrop/BackDrop";
 
 export default function UserDetails(props: { params: { id: string } }) {
   const {
@@ -107,11 +106,11 @@ export default function UserDetails(props: { params: { id: string } }) {
             />
           </figure>
           <aside className="py-4 text-left font-normal">
-            <h6 className="pb-3 text-xl font-bold">About</h6>
+            <h2 className="pb-3 text-xl font-bold">About</h2>
             <p className="text-sm">{userData.about ?? ""}</p>
           </aside>
           <aside className="text-left font-normal">
-            <h6 className="pb-3 text-xl font-bold">{userData.name}</h6>
+            <h2 className="pb-3 text-xl font-bold">{userData.name}</h2>
           </aside>
           <aside className="flex items-center">
             <p className="mr-2">Sign Out</p>
@@ -124,7 +123,7 @@ export default function UserDetails(props: { params: { id: string } }) {
 
         <article className="md:col-span-8 lg:col-span-9">
           <aside className="flex items-center">
-            <h5 className="mr-3 text-2xl font-bold">Hello, {userData.name}</h5>
+            <h3 className="mr-3 text-2xl font-bold">Hello, {userData.name}</h3>
           </aside>
           <figure className="h-14 w-14 overflow-hidden rounded-l-full md:hidden">
             <Image

@@ -40,7 +40,7 @@ export const FeaturedRoom: FC<Props> = props => {
         </aside>
       </article>
       <article className="text-left md:w-1/2 md:py-10">
-        <h3 className="font-heading mb-12">Featured Room</h3>
+        <h2 className="font-heading mb-12">Featured Room</h2>
         <p className="max-w-md font-normal">{featuredRoom.description}</p>
         <aside className="mt-5 flex flex-col justify-between md:flex-row md:items-end">
           <article className="mb-3 flex md:mb-0">

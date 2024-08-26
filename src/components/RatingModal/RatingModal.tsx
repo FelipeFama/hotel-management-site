@@ -34,9 +34,9 @@ export const RatingModal: FC<Props> = props => {
       }`}
     >
       <article className="w-96 rounded-lg bg-white p-4 shadow-lg">
-        <h2 className="mb-2 text-xl font-semibold dark:text-gray-800">
+        <h3 className="mb-2 text-xl font-semibold dark:text-gray-800">
           Rate Your Experience
-        </h2>
+        </h3>
         <aside className="mb-4">
           <label className="block text-sm font-medium text-gray-700">
             Rating
@@ -49,6 +49,7 @@ export const RatingModal: FC<Props> = props => {
                 className={`h-6 w-6 ${
                   ratingValue === value ? "text-yellow-500" : "text-gray-300"
                 }`}
+                aria-label="rate"
               >
                 <BsStarFill />
               </button>
@@ -57,15 +58,20 @@ export const RatingModal: FC<Props> = props => {
         </aside>
 
         <aside className="mb-4">
-          <label className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="reviewText"
+            className="block text-sm font-medium text-gray-700"
+          >
             Review Text
           </label>
 
           <textarea
+            id="reviewText"
             value={ratingText}
             onChange={e => setRatingText(e.target.value)}
             rows={4}
             className="w-full rounded-md border px-2 py-3"
+            name="text"
           ></textarea>
         </aside>
 

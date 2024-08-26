@@ -15,7 +15,11 @@ export default function Header() {
   return (
     <header className="container mx-auto flex flex-wrap items-center justify-between px-4 py-10 text-xl md:flex-nowrap">
       <div className="flex w-full items-center md:w-2/3">
-        <Link href="/" className="font-black text-tertiary-dark">
+        <Link
+          href="/"
+          className="font-black text-tertiary-dark"
+          aria-label="logo"
+        >
           Hotelzz
         </Link>
         <ul className="ml-5 flex items-center">

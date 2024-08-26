@@ -5,9 +5,9 @@ export const NewsLetter = () => {
         <p className="mb-3 text-center text-lg md:text-xl md:font-semibold">
           Explore More About Our Hotel
         </p>
-        <h6 className="text-center text-2xl font-medium md:text-3xl md:font-semibold lg:text-5xl">
+        <h3 className="text-center text-2xl font-medium md:text-3xl md:font-semibold lg:text-5xl">
           Sign Up for Our Newsletter
-        </h6>
+        </h3>
 
         <div className="flex w-full flex-col justify-center pt-12 md:flex-row">
           <input

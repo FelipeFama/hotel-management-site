@@ -39,6 +39,7 @@ export const Search: FC<Props> = ({
           </label>
           <div className="relative">
             <select
+              aria-label="plans"
               value={roomTypeFilter}
               onChange={handleRoomTypeChange}
               className="w-full rounded px-4 py-2 capitalize leading-tight focus:outline-none dark:bg-black"
